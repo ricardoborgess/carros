@@ -45,7 +45,7 @@
 
     .btn {
       display: inline-block;
-      background-color: #0096c7;
+      background-color: #a9a9a9;
       color: #fff;
       border: none;
       padding: 10px 20px;
@@ -57,7 +57,7 @@
     }
 
     .btn:hover {
-      background-color: #108eb8;
+      background-color: #808080;
     }
 
     .btn-danger {
@@ -87,4 +87,10 @@
       <p><strong>Placa:</strong> {{ object.plate }}</p>
       <p><strong>Preço:</strong> R$ {{ object.value }}</p>
   </div>
+  {% if user.is_authenticated %}
+  <div class="buttons-container">
+    <a href="{% url 'car_update' pk=object.pk %}" class="btn btn-primary">Editar</a>
+    <a href="{% url 'car_delete' pk=object.pk %}" class="btn btn-danger">Deletar</a>
+  </div>
+  {% endif %}
 {% endblock %}
