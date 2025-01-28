@@ -22,3 +22,14 @@ class Car(models.Model):
         return self.model
 
 
+class CarInventory(models.Model):
+    cars_count = models.IntegerField() # Armazena quantos carros tem no estoque
+    cars_value = models.FloatField()  # Armazena os valores de todos os carros do estoque
+    created_at = models.DateTimeField(auto_now_add=True) # Armazena data e hora que foi criado o registro
+
+    class Meta:
+        ordering = ['-created_at'] # Vai ordenar de ordem decrescente
+
+
+    def __str__(self):
+        return f'{self.cars_count} - {self.cars_value}'

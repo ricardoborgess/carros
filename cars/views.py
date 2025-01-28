@@ -45,3 +45,4 @@ class CarUpdateView(UpdateView):
 class CarDeleteView(DeleteView):
     model = Car
     template_name = 'car_delete.html'
+    success_url = '/cars/'
