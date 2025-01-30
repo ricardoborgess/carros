@@ -1,6 +1,11 @@
+from decouple import config
 import google.generativeai as genai 
 
-genai.configure(api_key="AIzaSyAhzHqNPLviPCVb4k9o89TiSIjdkcOW39s") 
+# Pegando a chave do arquivo .env
+api_key = config('API_KEY')
+
+# Configurando a API corretamente
+genai.configure(api_key=api_key)
 def car_gemini_ai(model, brand, year): 
     message = ''' Elaborar um resumo sobre o carro {} da marca {} do ano {} com espeficações tecnicas com 200 caracteres. ''' 
     message = message.format(model, brand, year)
